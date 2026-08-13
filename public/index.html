@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Box3 Chat ++</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="picture/favicon.png">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Box3 Chat ++</h1>
+      <div class="status-bar">
+        <span id="status" class="status-disconnected">未连接</span>
+        <button id="themeBtn" class="theme-btn">
+          <img src="picture/moon.png" alt="主题" />
+        </button>
+        <button id="settingsBtn" class="settings-btn">
+          <img src="picture/settings.png" alt="设置" />
+        </button>
+      </div>
+    </div>
+    <div class="main">
+      <div class="sidebar">
+        <div class="online-header">
+          <span>在线玩家</span>
+          <span id="onlineCount">0</span>
+        </div>
+        <div id="onlineList" class="online-list"></div>
+      </div>
+      <div class="chat-area">
+        <div class="session-tabs" id="sessionTabs">
+          <div class="session-tabs-scroll" id="sessionTabsScroll"></div>
+          <button id="addSessionBtn" class="add-session-btn">+</button>
+        </div>
+        <div id="chatContainer" class="chat-container">
+          <div id="messageContainer" class="messages"></div>
+          <div class="input-area">
+            <input type="text" id="messageInput" placeholder="输入消息..." />
+            <button id="sendButton">发送</button>
+          </div>
+        </div>
+      </div>
+      <div class="right-sidebar">
+        <div class="maps-header">热门地图</div>
+        <div id="mapList" class="map-list"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="settingsOverlay" class="settings-overlay">
+    <div class="settings-modal">
+      <div class="settings-header">
+        <h2>设置</h2>
+        <button id="settingsClose" class="settings-close">×</button>
+      </div>
+      <div class="settings-body">
+        <div class="settings-field">
+          <label>Token（全局）</label>
+          <input type="password" id="settingsToken" placeholder="输入 Token" />
+          <button id="settingsToggleToken" class="toggle-visibility">显示</button>
+        </div>
+        <div class="settings-current">
+          <div>当前 Token: <span id="currentToken">--</span></div>
+        </div>
+        <button id="authVerifyBtn" class="auth-verify-btn">前往神岛验证</button>
+        <div class="settings-actions">
+          <button id="settingsSave" class="settings-save">保存</button>
+          <button id="settingsCancel" class="settings-cancel">取消</button>
+        </div>
+        <div id="settingsMessage" class="settings-message"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="sessionOverlay" class="settings-overlay">
+    <div class="settings-modal">
+      <div class="settings-header">
+        <h2 id="sessionTitle">会话设置</h2>
+        <button id="sessionClose" class="settings-close">×</button>
+      </div>
+      <div class="settings-body">
+        <div class="settings-field">
+          <label>地图 ID</label>
+          <input type="text" id="sessionMapId" placeholder="输入地图 ID" />
+        </div>
+        <div class="settings-field">
+          <label>模式</label>
+          <select id="sessionMode">
+            <option value="play">play</option>
+            <option value="edit">edit</option>
+            <option value="world">world</option>
+          </select>
+        </div>
+        <div class="settings-actions">
+          <button id="sessionSave" class="settings-save">保存</button>
+          <button id="sessionCancel" class="settings-cancel">取消</button>
+        </div>
+        <div id="sessionMessage" class="settings-message"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="confirmOverlay" class="confirm-overlay">
+    <div class="confirm-modal">
+      <div class="confirm-header">
+        <h3>确认删除</h3>
+      </div>
+      <div class="confirm-body">
+        <p id="confirmMessage">确定要删除这个会话吗？</p>
+      </div>
+      <div class="confirm-actions">
+        <button id="confirmCancel" class="confirm-cancel">取消</button>
+        <button id="confirmOk" class="confirm-ok">删除</button>
+      </div>
+    </div>
+  </div>
+  <script src="modules/Sortable.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

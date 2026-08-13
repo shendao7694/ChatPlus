@@ -1,0 +1,21 @@
+{
+  "name": "box3-chat-plus",
+  "version": "1.0.0",
+  "description": "Box3 Chat with Web Interface",
+  "main": "main.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "concurrently \"node src/index.js\"a",
+    "open" : "electron ./src/front.js"
+  },
+  "dependencies": {
+    "axios": "^1.18.1",
+    "electron": "^43.2.0",
+    "express": "^4.22.2",
+    "node-rsa": "^2.0.0",
+    "ws": "^8.14.2"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.0"
+  }
+}
